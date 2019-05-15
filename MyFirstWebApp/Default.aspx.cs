@@ -28,9 +28,9 @@ namespace MyFirstWebApp
 
             string result = "Hello " + firstName + " " + lastName;
 
-            //SendToSQLServer(firstName, lastName);
-
             resultLabel.Text = result;
+
+            //SendToSQLServer(firstName, lastName);
 
             firstNameTextBox.Text = String.Empty;
             lastNameTextBox.Text = String.Empty;
