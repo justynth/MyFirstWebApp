@@ -10,6 +10,8 @@ namespace MyFirstWebApp
 {
     public partial class Default : System.Web.UI.Page
     {
+        // Fill in the variables in the connection string and populate the tableName, firstNameColumnHeader, and lastNameColumnHeader variables
+        // in order to insert your name into an SQL Server!
         private static string connectionString = "Data Source = ; Inital Catalog = ; User ID = ; Password = ";
         private static string tableName = String.Empty;
         private static string firstNameColumnHeader = String.Empty;
@@ -34,13 +36,19 @@ namespace MyFirstWebApp
             lastNameTextBox.Text = String.Empty;
         }
 
+
         private void SendToSQLServer(string firstName, string lastName)
         {
-            string queryString = @"INSERT INTO " + tableName + " (" + firstNameColumnHeader + ", " + lastNameColumnHeader + ") " +
+            /* 
+             * This method will allow you to connect to an SQL Server and insert the user input into an SQL database.
+             * In order to make this happen you will need to a) find an SQL database b) populate the variables that are
+             * declared in the Default class at the top of this page c) uncomment the method call in okButton_Click
+            */
+            string sqlString = @"INSERT INTO " + tableName + " (" + firstNameColumnHeader + ", " + lastNameColumnHeader + ") " +
                                     "VALUES('"+firstName+"','"+lastName+"');";
 
             SqlConnection myConnection = new SqlConnection(connectionString);
-            SqlCommand myCommand = new SqlCommand(queryString, myConnection);
+            SqlCommand myCommand = new SqlCommand(sqlString, myConnection);
 
             try
             {
